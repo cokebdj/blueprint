@@ -7,8 +7,8 @@ def test_healthcheck_endpoint():
     assert status_code == 200
 
 def test_correct_endpoint(client,input_dict):
-    response = client.post(data=json.dumps(input_dict))
-    assert response.status_code == 404
+    response = client.post('/transform',data=json.dumps(input_dict))
+    assert response.status_code == 200
 
 # patch("",class).start()
 # patch.stopall()
