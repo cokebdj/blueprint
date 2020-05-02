@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  test_api:
+    working_directory: ~/project
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - checkout
+      - run:
+          name: Runnning tests
+          command: |
+            virtualenv venv
+            . venv/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements.txt
+            tox
+
+workflows:
+  version: 2
+  test-api:
+    jobs:
+      - test_api
