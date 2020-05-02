@@ -14,8 +14,8 @@ jobs:
             pip install --upgrade pip
             pip install -r requirements.txt
             tox
-      - store_test_results:
-        path: test-results
+        - store_test_results:
+          path: test-results
           
 
 workflows:
